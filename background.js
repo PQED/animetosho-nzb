@@ -1,4 +1,3 @@
-
 // ==== background.js (service‑worker) ====
 // -------------------------------------------------------------------
 // 1️⃣  CONFIGURATION (kept in one place for easy tweaking)
