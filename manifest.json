@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Animetosho NZB Provider",
+  "description": "Searches https://feed.animetosho.org/json for NZB releases and sends them to Hayase.",
+  "version": "1.0.0",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+
+  /* ---------- Permissions & CSP (wiki § “Permissions & CSP”) ---------- */
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://feed.animetosho.org/*",
+    "https://animetosho.org/api/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src https://feed.animetosho.org https://animetosho.org"
+  },
+
+  /* ---------- Hayase‑specific manifest keys (wiki § “Manifest fields”) ---------- */
+  "hayase": {
+    "type": "nzb",                     // tells Hayase we provide NZB items
+    "popup": "popup/popup.html",       // UI that Hayase will embed
+    "name": "Animetosho"
+  },
+
+  /* ---------- Service‑worker (background) ---------- */
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  /* ---------- Toolbar icon (optional but recommended) ---------- */
+  "action": {
+    "default_icon": {
+      "48": "icons/icon-48.png"
+    },
+    "default_title": "Animetosho NZB Provider"
+  }
+}
